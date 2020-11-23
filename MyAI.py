@@ -179,10 +179,12 @@ class Cell:
 			return "[]"
 
 	def print_cell(self, end='\n'):
-		print(self.__str__() + f": {self.x},{self.y}", end=end)
+		#print(self.__str__() + f": {self.x},{self.y}", end=end)
+		pass
 
 	def coords_to_str(self):
-		return f"({self.x}. {self.y})"
+		#return f"({self.x}. {self.y})"
+		pass
 
 
 class Board:
@@ -291,18 +293,20 @@ class MyAI( AI ):
 		# updates the cell from the previous move
 		if number > -1:
 			if self.DEBUG:
-				print(f"Setting previous cell {self.prevX}, {self.prevY} to revealed")
+				#print(f"Setting previous cell {self.prevX}, {self.prevY} to revealed")
+				pass
 			prev_cell.reveal()
 			prev_cell.set_num(number)
 		else:
 			if self.DEBUG:
-				print(f"Setting previous cell {self.prevX}, {self.prevY} to flagged")
+				#print(f"Setting previous cell {self.prevX}, {self.prevY} to flagged")
+				pass
 			prev_cell.toggle_flag()
 			self.Board.remaining_mines -= 1
 
 		if self.DEBUG:
 			# prints board for debugging
-			print(f"Remaining mines: {self.Board.remaining_mines} | Remaining cells: {len(self.Board.remaining_cells)}")
+			#print(f"Remaining mines: {self.Board.remaining_mines} | Remaining cells: {len(self.Board.remaining_cells)}")
 			self.Board.print_board()
 			print()
 
@@ -342,14 +346,17 @@ class MyAI( AI ):
 		for i in range(len(islands)):
 			if len(islands[i]) <= self.CSP_DEPTH_LIMIT:
 				if self.DEBUG:
-					print(f"Doing CSP heuristic for island {i}")
+					#print(f"Doing CSP heuristic for island {i}")
+					pass
 				moves += self.do_CSP_heuristic(self.FULL_DEBUG, islands[i], num_frontiers[i])
 			elif self.DEBUG:
-				print(f"Skipped CSP heuristic for island {i}")
+				#print(f"Skipped CSP heuristic for island {i}")
+				pass
 
 		moves.sort(key=lambda x: x[0])  # sorts moves with smallest probability first
 		if self.DEBUG:
-			print(f"CSP Heuristic result: {moves}")
+			#print(f"CSP Heuristic result: {moves}")
+			pass
 
 		if moves:
 			small = moves[0][0]
@@ -415,11 +422,13 @@ class MyAI( AI ):
 		self.Board.past_cells.add(cell)
 		if act == "F":
 			if self.DEBUG:
-				print(f"Flagging {cell.x}, {cell.y}")
+				#print(f"Flagging {cell.x}, {cell.y}")
+				pass
 			return Action(AI.Action.FLAG, cell.x, cell.y)
 		if act == "R":
 			if self.DEBUG:
-				print(f"Revealing {cell.x}, {cell.y}")
+				#print(f"Revealing {cell.x}, {cell.y}")
+				pass
 			return Action(AI.Action.UNCOVER, cell.x, cell.y)
 
 	def add_possible_moves_to_queue(self):
@@ -456,7 +465,8 @@ class MyAI( AI ):
 
 		if self.DEBUG:
 			for i, f in enumerate(islands):
-				print(f"Frontier {i}: {len(f)}")
+				#print(f"Frontier {i}: {len(f)}")
+				pass
 
 		# numeric frontier is a set of revealed (numbered) cells adjacent to any frontier cell
 		numeric_frontier = set()
@@ -514,7 +524,8 @@ class MyAI( AI ):
 		'''Recursively searches the state space of the frontier nodes, avoiding obviously impossible states'''
 
 		if debug or (self.DEBUG and depth == 0):
-			print(("\t" * depth) + f"rCSP(c:{cell.coords_to_str()}, r:{len(remaining)}, nc:{len(num_cells)}, m:{len(mines)}, d:{depth})")
+			#print(("\t" * depth) + f"rCSP(c:{cell.coords_to_str()}, r:{len(remaining)}, nc:{len(num_cells)}, m:{len(mines)}, d:{depth})")
+			pass
 
 		# Begin by assuming 'cell' is a mine
 		cell.temp_is_mine = True
