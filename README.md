@@ -9,5 +9,5 @@ All code had to be contained within a single file. I would have rather split it 
 ### Why Am I Uploading It Now?
 I'm uploading previous coding projects that show how I code and how my coding style has changed over time.
 
-#### Note To Students:
+### Note To Students:
 If you're a student, don't copy this code. It's not posted here publically to be copied.
